@@ -13,11 +13,9 @@ from pix_validator import (
     validate_pix,
 )
 
-
 class NormalizeTests(unittest.TestCase):
     def test_removes_non_numeric_characters(self):
         self.assertEqual(_normalize("529.982.247-25"), "52998224725")
-
 
 class CpfValidationTests(unittest.TestCase):
     def test_accepts_valid_cpf_with_formatting(self):

@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from pydantic import BaseModel, Field, field_serializer
-from uuid import uuid4, UUID
+from uuid import uuid4
 from datetime import datetime
 from re import sub
 

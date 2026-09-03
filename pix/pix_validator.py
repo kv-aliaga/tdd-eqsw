@@ -43,5 +43,5 @@ def _validate_cellphone(cellphone: str):
 
         if not is_valid and not is_mobile:
             raise InvalidPixKeyError('The provided cellphone does not exist')
-    except NumberParseException as e:
+    except NumberParseException:
         raise InvalidPixKeyError('There was a error during the cellphone number parsing')

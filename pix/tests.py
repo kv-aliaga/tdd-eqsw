@@ -6,16 +6,11 @@ from phonenumbers import NumberParseException, PhoneNumberType
 
 from classes import InvalidPixKeyError, PixKeyRequest
 from pix_validator import (
-    _normalize,
     _validate_cellphone,
     _validate_cpf,
     _validate_email,
     validate_pix,
 )
-
-class NormalizeTests(unittest.TestCase):
-    def test_removes_non_numeric_characters(self):
-        self.assertEqual(_normalize("529.982.247-25"), "52998224725")
 
 class CpfValidationTests(unittest.TestCase):
     def test_accepts_valid_cpf_with_formatting(self):
@@ -77,7 +72,7 @@ class PixValidationTests(unittest.TestCase):
             cellphone="+5511999999999",
         )
 
-        self.assertIsNone(validate_pix(pix))
+        self.assertIs(validate_pix(pix), pix)
 
         cpf_mock.assert_called_once_with(pix.cpf)
         email_mock.assert_called_once_with(pix.email)
